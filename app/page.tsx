@@ -99,7 +99,7 @@ export default function Home() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search for music, movies, apps..."
-              className="flex-grow p-2 border rounded"
+              className="flex-grow p-2 bg-gray-200 dark:bg-gray-500/10 rounded"
               onKeyPress={(e) => e.key === "Enter" && handleSearch()}
             />
             <button
