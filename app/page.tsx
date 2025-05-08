@@ -154,8 +154,8 @@ export default function Home() {
                 type="button"
                 onClick={() => setViewMode(mode as "grid" | "list")}
                 className={`
-                px-4 py-2 text-sm font-medium 
-                ${viewMode === mode 
+                px-4 py-2 text-sm font-medium
+                ${viewMode === mode
                   ? 'bg-blue-500 text-white font-medium shadow-inner' 
                   : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700'}
                 border border-gray-200
