@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import GridItem from "../components/GridItem";
 import ListItem from "@/components/ListItem";
 
@@ -59,25 +58,25 @@ export default function Home() {
 
   const handleSearch = async () => {
     if (!searchTerm.trim()) return;
-    
+
     setIsLoading(true);
     setError("");
-    
+
     try {
       // Build the URL with media type parameter
       let searchUrl = `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&country=${country}&limit=50`;
-      
+
       // Only add the media parameter if a specific type is selected
       if (mediaType !== "all") {
         searchUrl += `&media=${mediaType}`;
       }
-      
+
       const response = await fetch(searchUrl);
-      
+
       if (!response.ok) {
         throw new Error("Failed to fetch data from iTunes");
       }
-      
+
       const data = await response.json();
       setSearchResults(data.results);
     } catch (err) {
@@ -111,7 +110,7 @@ export default function Home() {
               {isLoading ? "Searching..." : "Search"}
             </button>
           </div>
-          
+
           <div className="w-full sm:w-48">
             <select
               value={country}
