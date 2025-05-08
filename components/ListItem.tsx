@@ -1,14 +1,5 @@
 import Image from "next/image";
-
-interface SearchResult {
-	trackId: number;
-	artworkUrl100: string;
-	trackName?: string;
-	artistName: string;
-	collectionName?: string;
-	kind?: string;
-	wrapperType?: string;
-}
+import { SearchResult } from "./types";
 
 interface ListItemProps {
 	item: SearchResult;
