@@ -13,6 +13,8 @@ interface SearchResult {
   collectionName?: string;
   kind?: string;
   wrapperType?: string;
+  trackViewUrl?: string;
+  collectionViewUrl?: string;
 }
 
 // List of common iTunes store countries
@@ -90,7 +92,7 @@ export default function Home() {
     <div className="min-h-screen p-8 font-[family-name:var(--font-geist-sans)]">
       <main className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-bold mb-8 text-center">iTunes Search</h1>
-        
+
         <div className="flex flex-col sm:flex-row gap-2 mb-8">
           <div className="flex flex-1 gap-2">
             <input
@@ -144,28 +146,29 @@ export default function Home() {
         {error && <div className="text-red-500 mb-4">{error}</div>}
 
         {searchResults.length > 0 && (
-          <div className="flex justify-end mb-4">
+            <div className="flex justify-end mb-4">
             <div className="inline-flex rounded-md shadow-sm" role="group">
+              {['grid', 'list'].map((mode) => (
               <button
+                key={mode}
                 type="button"
-                onClick={() => setViewMode("grid")}
-                className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ${
-                  viewMode === "grid" ? "bg-gray-100 text-blue-700" : ""
-                }`}
+                onClick={() => setViewMode(mode as "grid" | "list")}
+                className={`
+                px-4 py-2 text-sm font-medium 
+                ${viewMode === mode 
+                  ? 'bg-blue-500 text-white font-medium shadow-inner' 
+                  : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700'}
+                border border-gray-200
+                ${mode === 'grid' ? 'rounded-l-lg' : 'rounded-r-lg'}
+                focus:z-10 focus:ring-2 focus:ring-blue-700
+                transition-colors duration-200
+                `}
               >
-                Grid
+                {mode.charAt(0).toUpperCase() + mode.slice(1)}
               </button>
-              <button
-                type="button"
-                onClick={() => setViewMode("list")}
-                className={`px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ${
-                  viewMode === "list" ? "bg-gray-100 text-blue-700" : ""
-                }`}
-              >
-                List
-              </button>
+              ))}
             </div>
-          </div>
+            </div>
         )}
 
         {searchResults.length > 0 ? (
