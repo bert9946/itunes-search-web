@@ -146,29 +146,29 @@ export default function Home() {
         {error && <div className="text-red-500 mb-4">{error}</div>}
 
         {searchResults.length > 0 && (
-            <div className="flex justify-end mb-4">
-            <div className="inline-flex rounded-md shadow-sm" role="group">
+          <div className="flex justify-end mb-4">
+            <div className="inline-flex rounded-lg shadow-sm" role="group">
               {['grid', 'list'].map((mode) => (
-              <button
-                key={mode}
-                type="button"
-                onClick={() => setViewMode(mode as "grid" | "list")}
-                className={`
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => setViewMode(mode as "grid" | "list")}
+                  className={`
                 px-4 py-2 text-sm font-medium
                 ${viewMode === mode
-                  ? 'bg-blue-500 text-white font-medium shadow-inner' 
-                  : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700'}
+                      ? 'bg-blue-500 text-white font-medium shadow-inner'
+                      : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700'}
                 border border-gray-200
                 ${mode === 'grid' ? 'rounded-l-lg' : 'rounded-r-lg'}
                 focus:z-10 focus:ring-2 focus:ring-blue-700
                 transition-colors duration-200
                 `}
-              >
-                {mode.charAt(0).toUpperCase() + mode.slice(1)}
-              </button>
+                >
+                  {mode.charAt(0).toUpperCase() + mode.slice(1)}
+                </button>
               ))}
             </div>
-            </div>
+          </div>
         )}
 
         {searchResults.length > 0 ? (
