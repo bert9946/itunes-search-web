@@ -16,7 +16,7 @@ export default function ListItem({ item }: ListItemProps) {
 			rel="noopener noreferrer"
 			className="no-underline text-inherit"
 		>
-			<div className="flex gap-4 shadow-lg rounded-lg p-4 hover:shadow-lg transition-shadow">
+			<div className="flex gap-4 shadow-lg rounded-lg p-4 hover:shadow-2xl transition-shadow">
 				{item.artworkUrl100 && (
 					<div className="shrink-0">
 						<Image
