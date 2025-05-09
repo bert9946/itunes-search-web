@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SearchResult } from "./types";
-
+import KindLabel from "./kindLabel";
 interface GridItemProps {
 	item: SearchResult;
 }
@@ -30,9 +30,7 @@ export default function GridItem({ item }: GridItemProps) {
 				{item.collectionName && item.trackName && (
 					<p className="text-sm text-gray-500">{item.collectionName}</p>
 				)}
-				<span className="mt-auto inline-block bg-gray-100 rounded-full px-2 py-0.5 text-xs self-start">
-					{ item.kind }
-				</span>
+				<KindLabel kind={item.kind} wrapperType={item.wrapperType} />
 			</div>
 		</a>
 	);
