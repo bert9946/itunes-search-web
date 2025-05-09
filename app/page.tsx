@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import GridItem from "../components/GridItem";
+import GridItem from "@/components/GridItem";
 import ListItem from "@/components/ListItem";
 
 interface SearchResult {
