@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SearchResult } from "./types";
-import KindLabel from "./kindLabel";
+import KindLabel from "./KindLabel";
 interface GridItemProps {
 	item: SearchResult;
 }
