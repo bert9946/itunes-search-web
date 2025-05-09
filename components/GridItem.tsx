@@ -15,14 +15,13 @@ export default function GridItem({ item }: GridItemProps) {
 			rel="noopener noreferrer"
 			className="no-underline text-inherit"
 		>
-			<div className="shadow-xl rounded-2xl p-4 flex flex-col h-full relative z-10 hover:shadow-2xl transition-shadow">
-				<div className="mb-4 mx-auto flex items-center justify-center">
+			<div className="shadow-xl rounded-2xl p-4 min-h-100 flex flex-col relative z-10 hover:shadow-2xl transition-shadow">
+				<div className="mb-4 mx-auto flex items-center justify-center w-full h-60 relative">
 					<Image
 						src={item.artworkUrl512 || item.artworkUrl100.replace("100x100", "600x600")}
 						alt={item.trackName || item.collectionName || "Item"}
-						width={600}
-						height={600}
-						className="rounded object-contain aspect-square"
+						fill
+						className="rounded object-contain"
 					/>
 				</div>
 				<h3 className="font-bold line-clamp-2">{item.trackName || item.collectionName || "Untitled"}</h3>
