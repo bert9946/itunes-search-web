@@ -19,7 +19,7 @@ export default function ListItem({ item }: ListItemProps) {
 				{item.artworkUrl100 && (
 					<div className="shrink-0">
 						<Image
-							src={item.artworkUrl100.replace("100x100", "600x600")}
+							src={item.artworkUrl512 || item.artworkUrl100.replace("100x100", "600x600")}
 							alt={item.trackName || item.collectionName || "Item"}
 							width={80}
 							height={80}
