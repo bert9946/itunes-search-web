@@ -26,8 +26,8 @@ export default function ListItem({ item }: ListItemProps) {
 					/>
 				</div>
 				<div className="flex flex-col">
-					<h3 className="font-bold text-lg mt-4">{item.trackName || item.collectionName || "Untitled"}</h3>
-					<p className="text-sm text-gray-600">{item.artistName}</p>
+					<span className="font-bold text-lg mt-4">{item.trackName || item.collectionName || "Untitled"}</span>
+					<p className="text-gray-600 dark:text-gray-400">{item.artistName}</p>
 					{item.collectionName && item.trackName && (
 						<p className="text-sm text-gray-500">{item.collectionName}</p>
 					)}
