@@ -162,19 +162,17 @@ export default function Home() {
         )}
 
         {searchResults.length > 0 ? (
-          viewMode === "grid" ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {searchResults.map((item) => (
+          <div className={`${viewMode === "grid"
+            ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            : "flex flex-col gap-4"}`}>
+            {searchResults.map((item) => (
+                viewMode === "grid" ? (
                 <GridItem key={item.trackId} item={item} />
+                ) : (
+                  <ListItem key={item.trackId} item={item} />
+                )
               ))}
             </div>
-          ) : (
-            <div className="flex flex-col gap-4">
-              {searchResults.map((item) => (
-                <ListItem key={item.trackId} item={item} />
-              ))}
-            </div>
-          )
         ) : (
           searchTerm && !isLoading && (
             <p className="text-center text-gray-500">No results found</p>
