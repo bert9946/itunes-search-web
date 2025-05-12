@@ -20,17 +20,9 @@ interface SearchResult {
 const countries = [
   { code: "tw", name: "Taiwan" },
   { code: "us", name: "United States" },
-  { code: "gb", name: "United Kingdom" },
-  { code: "ca", name: "Canada" },
-  { code: "au", name: "Australia" },
   { code: "jp", name: "Japan" },
-  { code: "fr", name: "France" },
-  { code: "de", name: "Germany" },
-  { code: "it", name: "Italy" },
-  { code: "es", name: "Spain" },
-  { code: "br", name: "Brazil" },
   { code: "in", name: "India" },
-  { code: "mx", name: "Mexico" },
+  { code: "tr", name: "Türkiye" },
 ];
 
 // List of media types for iTunes search
@@ -52,7 +44,7 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [country, setCountry] = useState("us");
+  const [country, setCountry] = useState("tw");
   const [mediaType, setMediaType] = useState("all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
@@ -115,7 +107,7 @@ export default function Home() {
             <select
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full h-full p-2 rounded"
               aria-label="Select country store"
             >
               {countries.map((c) => (
@@ -130,7 +122,7 @@ export default function Home() {
             <select
               value={mediaType}
               onChange={(e) => setMediaType(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full h-full p-2 rounded"
               aria-label="Select media type"
             >
               {mediaTypes.map((type) => (
@@ -146,7 +138,7 @@ export default function Home() {
 
         {searchResults.length > 0 && (
           <div className="flex justify-end mb-4">
-            <div className="inline-flex rounded-lg shadow-sm" role="group">
+            <div className="inline-flex rounded shadow-sm" role="group">
               {['grid', 'list'].map((mode) => (
                 <button
                   key={mode}
@@ -157,8 +149,7 @@ export default function Home() {
                 ${viewMode === mode
                       ? 'bg-blue-500 text-white font-medium shadow-inner'
                       : 'text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700'}
-                border border-gray-200
-                ${mode === 'grid' ? 'rounded-l-lg' : 'rounded-r-lg'}
+                ${mode === 'grid' ? 'rounded-l' : 'rounded-r'}
                 focus:z-10 focus:ring-2 focus:ring-blue-700
                 transition-colors duration-200
                 `}
