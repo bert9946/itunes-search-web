@@ -1,4 +1,4 @@
-![screenshot](Assets/screenshot.png)
+![screenshot](assets/screenshot.png)
 
 ## Getting Started
 
